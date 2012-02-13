@@ -21,8 +21,8 @@ my $cpci = 'cpci.bit';
 my $cpci_reprogrammer = 'cpci_reprogrammer.bit';
 
 # System binaries
-my $lspci = '/sbin/lspci';
-my $ifconfig = '/sbin/ifconfig';
+my $lspci = 'lspci';
+my $ifconfig = 'ifconfig';
 
 # NetFPGA PCI device ID
 my $NF2_device_id = "feed:0001";

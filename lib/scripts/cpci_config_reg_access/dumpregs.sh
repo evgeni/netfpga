@@ -85,7 +85,7 @@ fi
 echo "Dumping registers..." >&2
 for REG in $REGS ; do
 	echo -n "$REG="
-	/sbin/setpci $DEVICE $REG
+	setpci $DEVICE $REG
 done
 
 # Close stdout

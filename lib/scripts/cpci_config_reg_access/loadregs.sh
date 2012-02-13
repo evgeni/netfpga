@@ -47,7 +47,7 @@ while read REG ; do
 	fi
 
 	# Program the register
-	/sbin/setpci $DEVICE "$REG"
+	setpci $DEVICE "$REG"
 done
 
 echo "Done"
