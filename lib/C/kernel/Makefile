@@ -12,6 +12,8 @@ endif
 EXTRA_CFLAGS += $(DEBFLAGS)
 EXTRA_CFLAGS += -I$(LDDINC)
 
+KVER ?= $(shell uname -r)
+
 ifneq ($(KERNELRELEASE),)
 # call from kernel build system
 
@@ -21,7 +23,7 @@ obj-m	:= nf2.o
 
 else
 
-KERNELDIR ?= /lib/modules/$(shell uname -r)/build
+KERNELDIR ?= /lib/modules/$(KVER)/build
 PWD       := $(shell pwd)
 
 modules:
@@ -43,5 +45,5 @@ include .depend
 endif
 
 install: modules
-	install -m 644 nf2.ko /lib/modules/`uname -r`/kernel/drivers/nf2.ko
-	/sbin/depmod -a
+	install -m 644 nf2.ko /lib/modules/$(KVER)/kernel/drivers/nf2.ko
+	/sbin/depmod -a $(KVER)
